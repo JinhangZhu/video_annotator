@@ -143,6 +143,9 @@
             <height>0</height>
            </size>
           </property>
+          <property name="text">
+           <string/>
+          </property>
          </widget>
         </item>
        </layout>
@@ -251,35 +254,35 @@
         <item row="3" column="0" colspan="2">
          <widget class="QCheckBox" name="checkBox_buildingin">
           <property name="text">
-           <string>building in</string>
+           <string>buildingin</string>
           </property>
          </widget>
         </item>
         <item row="3" column="2" colspan="3">
          <widget class="QCheckBox" name="checkBox_buildingout">
           <property name="text">
-           <string>building out</string>
+           <string>buildingout</string>
           </property>
          </widget>
         </item>
         <item row="4" column="0" colspan="2">
          <widget class="QCheckBox" name="checkBox_specialevent">
           <property name="text">
-           <string>special event</string>
+           <string>specialevent</string>
           </property>
          </widget>
         </item>
         <item row="4" column="2" colspan="3">
          <widget class="QCheckBox" name="checkBox_specialspot">
           <property name="text">
-           <string>special spot</string>
+           <string>specialspot</string>
           </property>
          </widget>
         </item>
         <item row="1" column="2" colspan="2">
          <widget class="QCheckBox" name="checkBox_walkanimal">
           <property name="text">
-           <string>walk animal</string>
+           <string>walkanimal</string>
           </property>
          </widget>
         </item>
