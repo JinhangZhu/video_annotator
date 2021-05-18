@@ -6,6 +6,7 @@ import os
 import sys
 
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QCursor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStyle, QFileDialog
 
 from VideoAnnotator_ui import Ui_MainWindow
@@ -42,9 +43,18 @@ class MainPanel(Ui_MainWindow, QMainWindow):
 
         icon = QApplication.style().standardIcon(QStyle.SP_MediaPlay)
         self.pushButtonPlay.setIcon(icon)
+        self.pushButtonPlay.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButtonChooseSource.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButtonSaveLabels.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButtonNext.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButtonPrevious.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.update_button_status()
         self.setupSignals()
+
+    def one_click_set_all_checkbox_status(self, flag):
+        for checkbox in self.all_checkboxes:
+            checkbox.setCheckState(flag)
 
     def update_button_status(self):
         isClickable = self.video_absolute_paths is not None
@@ -76,6 +86,7 @@ class MainPanel(Ui_MainWindow, QMainWindow):
             return
         self.current_video_index -= 1
         self.update_current_video()
+        self.one_click_set_all_checkbox_status(False)
 
     def onNextVideo(self):
         if self.current_video_index == len(self.video_absolute_paths) - 1:
@@ -83,6 +94,7 @@ class MainPanel(Ui_MainWindow, QMainWindow):
             return
         self.current_video_index += 1
         self.update_current_video()
+        self.one_click_set_all_checkbox_status(False)
 
     def update_current_video(self):
         self.current_video_absolute_path = self.video_absolute_paths[self.current_video_index]
